@@ -18,6 +18,7 @@ public class Post {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String postName;
     @Column(name = "postDetail")
     private String postDetail;
 
