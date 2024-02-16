@@ -6,7 +6,10 @@ import com.hakanozdabak.BlogApp.business.requests.PostRequest;
 import com.hakanozdabak.BlogApp.business.responses.PostResponse;
 import com.hakanozdabak.BlogApp.dataAccess.abstracts.PostRepository;
 import com.hakanozdabak.BlogApp.entities.concretes.Post;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,8 +17,9 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class PostManager implements PostService {
+
 
     private PostRepository postRepository;
 
@@ -30,9 +34,9 @@ public class PostManager implements PostService {
 
     @Override
     public List<PostResponse> getAllPosts() {
-        List<Post> products = postRepository.findAll();
-        List<PostResponse> postResponses= products.stream()
-                .map(product -> this.modelMapperService.forResponse().map(product, PostResponse.class)).collect(Collectors.toList());
+        List<Post> posts = postRepository.findAll();
+        List<PostResponse> postResponses= posts.stream()
+                .map(post -> this.modelMapperService.forResponse().map(post, PostResponse.class)).collect(Collectors.toList());
         return postResponses;
     }
 
@@ -48,7 +52,7 @@ public class PostManager implements PostService {
     }
 
     @Override
-    public Optional<PostResponse> getPost(int id) {
+    public Optional<PostResponse> getPostById(int id) {
         return this.postRepository.findById(id)
                 .map(post -> this.modelMapperService.forResponse().map(post, PostResponse.class));
     }

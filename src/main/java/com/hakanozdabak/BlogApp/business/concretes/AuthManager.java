@@ -5,6 +5,7 @@ import com.hakanozdabak.BlogApp.business.requests.AuthenticationRequest;
 import com.hakanozdabak.BlogApp.business.requests.RegisterRequest;
 import com.hakanozdabak.BlogApp.business.responses.AuthenticationResponse;
 import com.hakanozdabak.BlogApp.dataAccess.abstracts.UserRepository;
+import com.hakanozdabak.BlogApp.entities.concretes.Role;
 import com.hakanozdabak.BlogApp.entities.concretes.User;
 
 import com.hakanozdabak.BlogApp.security.jwt.JwtService;
@@ -28,7 +29,7 @@ public class AuthManager implements AuthService {
                 .lastName(registerRequest.getLastName())
                 .email(registerRequest.getEmail())
                 .password(passwordEncoder.encode(registerRequest.getPassword()))
-                .role(registerRequest.getRole())
+                .role(Role.USER)
                 .build();
         userRepository.save(user);
         var jwtToken = jwtService.generateToken(user.getEmail());

@@ -17,6 +17,6 @@ public interface PostService {
 
     void delete(int id);
 
-    Optional<PostResponse> getPost(int id);
+    Optional<PostResponse> getPostById(int id);
 
 }
