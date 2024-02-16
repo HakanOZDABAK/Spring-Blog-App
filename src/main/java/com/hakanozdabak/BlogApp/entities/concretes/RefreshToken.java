@@ -2,26 +2,27 @@ package com.hakanozdabak.BlogApp.entities.concretes;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.time.Instant;
 
+@Entity
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="posts")
-@Entity
-public class Post {
+public class RefreshToken {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column(name = "postDetail")
-    private String postDetail;
+    private int id ;
+    private String token;
 
+    private Instant expirayDate;
 
-
-
+    @OneToOne
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
+    private User user;
 }
