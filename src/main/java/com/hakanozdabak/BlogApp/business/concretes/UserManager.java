@@ -16,11 +16,10 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
-@NoArgsConstructor
 public class UserManager implements UserService {
 
-    private UserRepository userRepository;
-    private ModelMapperService modelMapperService;
+    private final UserRepository userRepository;
+    private final ModelMapperService modelMapperService;
 
     @Override
     public List<UserResponse> getAllUsers() {

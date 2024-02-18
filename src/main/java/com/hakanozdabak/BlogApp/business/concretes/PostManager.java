@@ -24,6 +24,7 @@ public class PostManager implements PostService {
     @Override
     public void add(PostRequest postRequest) {
      Post post = this.modelMapperService.forRequest().map(postRequest,Post.class);
+
      this.postRepository.save(post);
 
     }

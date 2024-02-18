@@ -6,6 +6,7 @@ import com.hakanozdabak.BlogApp.entities.concretes.User;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,12 +18,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/users")
 @CrossOrigin
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @SecurityRequirement(name = "bearerAuth")
 public class UserController {
 
-    private UserService userService;
+    private final UserService userService;
 
     @GetMapping("/getAllUsers")
     public ResponseEntity<List<UserResponse>> getAllUsers(){
