@@ -7,9 +7,6 @@ import com.hakanozdabak.BlogApp.business.responses.PostResponse;
 import com.hakanozdabak.BlogApp.dataAccess.abstracts.PostRepository;
 import com.hakanozdabak.BlogApp.entities.concretes.Post;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,15 +17,14 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class PostManager implements PostService {
 
+    private final PostRepository postRepository;
 
-    private PostRepository postRepository;
-
-    private ModelMapperService modelMapperService;
+    private final ModelMapperService modelMapperService;
 
     @Override
     public void add(PostRequest postRequest) {
-        Post post = this.modelMapperService.forRequest().map(postRequest,Post.class);
-        this.postRepository.save(post);
+     Post post = this.modelMapperService.forRequest().map(postRequest,Post.class);
+     this.postRepository.save(post);
 
     }
 

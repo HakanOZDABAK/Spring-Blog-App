@@ -7,6 +7,7 @@ import com.hakanozdabak.BlogApp.business.responses.PostResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,13 +15,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/posts")
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @SecurityRequirement(name = "bearerAuth")
 @CrossOrigin
 public class PostController {
 
-    private PostService postService;
+    private final PostService postService;
 
     @GetMapping("/getAllPosts")
     public ResponseEntity<List<PostResponse>> getAllPosts(){

@@ -34,22 +34,7 @@ public class BlogAppApplication {
 		return new ModelMapper();
 	}
 
-	@Bean
-	public CommandLineRunner commandLineRunner(AuthService authenticationService)
-	{
-		return args -> {
-			var admin = RegisterRequest.builder()
-					.firstName("Admin")
-					.lastName("Admin")
-					.email("admin@mail.com")
-					.password("admin")
-					.role(Role.ADMIN)
-					.build();
-			System.out.println("Admin Token: " + authenticationService.register(admin).getToken());
 
-		};
-
-	}
 }
 
 

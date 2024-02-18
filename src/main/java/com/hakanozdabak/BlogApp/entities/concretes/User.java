@@ -64,6 +64,5 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Post> posts = new ArrayList<>();
+
 }

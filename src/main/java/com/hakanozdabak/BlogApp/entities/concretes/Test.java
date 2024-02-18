@@ -1,29 +1,18 @@
 package com.hakanozdabak.BlogApp.entities.concretes;
 
-import com.hakanozdabak.BlogApp.business.responses.UserResponse;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="posts")
+@Table(name = "tests")
 @Entity
-@Builder
-public class Post {
-
+public class Test {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String postName;
-    private String postDetail;
-
-
-
-
+    private String name;
 }
