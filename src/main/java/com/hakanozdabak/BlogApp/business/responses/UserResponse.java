@@ -17,6 +17,7 @@ public class UserResponse {
     private String lastName;
     private String password;
     private String email;
+    private String profileName;
     private Role role;
 
     private List<GetUserPostResponse> posts;

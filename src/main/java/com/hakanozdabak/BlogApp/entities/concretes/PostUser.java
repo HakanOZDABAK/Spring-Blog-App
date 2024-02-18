@@ -15,7 +15,7 @@ public class PostUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String userName;
+    private String profileName;
 
 
 }

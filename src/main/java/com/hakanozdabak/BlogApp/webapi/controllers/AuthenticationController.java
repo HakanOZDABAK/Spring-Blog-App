@@ -29,14 +29,16 @@ public class AuthenticationController {
     }
 
     @PostMapping("/authenticate")
-    public AuthenticationResponse register(
+    public AuthenticationResponse auth(
             @RequestBody AuthenticationRequest authenticationRequest
     ) {
         RefreshToken refreshToken = refreshTokenService.createRefreshToken(authenticationRequest.getEmail());
 
         return AuthenticationResponse.builder()
                 .accessToken(String.valueOf(authService.authenticate(authenticationRequest).getToken()))
-                .token(refreshToken.getToken()).build();
+                .profileName(String.valueOf(authService.authenticate(authenticationRequest).getProfileName()))
+                .token(refreshToken.getToken())
+                .build();
 
 
     }

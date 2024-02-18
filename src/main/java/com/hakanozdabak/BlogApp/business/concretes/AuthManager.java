@@ -28,6 +28,7 @@ public class AuthManager implements AuthService {
                 .firstName(registerRequest.getFirstName())
                 .lastName(registerRequest.getLastName())
                 .email(registerRequest.getEmail())
+                .profileName(registerRequest.getProfileName())
                 .password(passwordEncoder.encode(registerRequest.getPassword()))
                 .role(Role.USER)
                 .build();
@@ -40,19 +41,21 @@ public class AuthManager implements AuthService {
     }
 
     @Override
-    public AuthenticationResponse authenticate(AuthenticationRequest registerRequest) {
+    public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        registerRequest.getEmail(),
-                        registerRequest.getPassword()
+                        authenticationRequest.getEmail(),
+                        authenticationRequest.getPassword()
                 )
         );
-        var user =userRepository.findByEmail(registerRequest.getEmail())
+        var user =userRepository.findByEmail(authenticationRequest.getEmail())
                 .orElseThrow();
         var jwtToken = jwtService.generateToken(user.getEmail());
         return AuthenticationResponse.builder()
+                .profileName(user.getProfileName())
                 .token(jwtToken)
                 .build();
+
     }
     }
 

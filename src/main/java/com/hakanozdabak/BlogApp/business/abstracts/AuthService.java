@@ -8,6 +8,6 @@ import com.hakanozdabak.BlogApp.business.responses.AuthenticationResponse;
 public interface AuthService {
 
     AuthenticationResponse register(RegisterRequest registerRequest);
-    AuthenticationResponse authenticate(AuthenticationRequest registerRequest);
+    AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest);
 
 }
