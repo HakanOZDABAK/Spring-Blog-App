@@ -53,6 +53,7 @@ public class AuthManager implements AuthService {
         var jwtToken = jwtService.generateToken(user.getEmail());
         return AuthenticationResponse.builder()
                 .profileName(user.getProfileName())
+                .id(user.getId())
                 .token(jwtToken)
                 .build();
 

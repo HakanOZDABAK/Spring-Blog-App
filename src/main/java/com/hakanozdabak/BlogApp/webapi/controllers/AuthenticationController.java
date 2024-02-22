@@ -37,6 +37,7 @@ public class AuthenticationController {
         return AuthenticationResponse.builder()
                 .accessToken(String.valueOf(authService.authenticate(authenticationRequest).getToken()))
                 .profileName(String.valueOf(authService.authenticate(authenticationRequest).getProfileName()))
+                .id(Integer.parseInt(String.valueOf(authService.authenticate(authenticationRequest).getId())))
                 .token(refreshToken.getToken())
                 .build();
 
