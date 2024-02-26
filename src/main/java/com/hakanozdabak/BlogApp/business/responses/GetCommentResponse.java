@@ -1,6 +1,6 @@
 package com.hakanozdabak.BlogApp.business.responses;
 
-import jakarta.persistence.Column;
+import com.hakanozdabak.BlogApp.entities.concretes.BlogUser;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,9 +8,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class GetUserPostResponse {
+public class GetCommentResponse {
 
+    private int commentId;
+    private String commentDetail;
+    private BlogUser blogUser;
     private int postId;
-    private String postName;
-    private String postDetail;
+
+
 }

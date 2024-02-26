@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserResponse {
-    private int id;
+    private int userId;
     private String firstName;
     private String lastName;
     private String password;
