@@ -1,5 +1,6 @@
 package com.hakanozdabak.BlogApp.business.responses;
 
+import com.hakanozdabak.BlogApp.entities.concretes.BlogComment;
 import com.hakanozdabak.BlogApp.entities.concretes.BlogUser;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +14,6 @@ public class GetCommentResponse {
     private int commentId;
     private String commentDetail;
     private BlogUser blogUser;
-    private int postId;
 
 
 }
