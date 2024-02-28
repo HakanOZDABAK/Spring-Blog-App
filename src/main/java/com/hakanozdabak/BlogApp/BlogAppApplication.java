@@ -60,7 +60,7 @@ public class BlogAppApplication {
 		 validationProblemDetails.setValidationErrors(new HashMap<String,String>());
 		 for (FieldError fieldError: methodArgumentNotValidException.getBindingResult().getFieldErrors()) {
 		 validationProblemDetails.getValidationErrors().put(fieldError.getField(),fieldError.getDefaultMessage());
-		 
+
 		 }
 		 return validationProblemDetails;
 	 }

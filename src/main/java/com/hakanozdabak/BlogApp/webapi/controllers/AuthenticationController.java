@@ -22,8 +22,8 @@ public class AuthenticationController {
     private final RefreshTokenService refreshTokenService;
     private final JwtService jwtService;
     @PostMapping("/register")
-    public String register(
-            @RequestBody RegisterRequest registerRequest
+    public String register( @Valid
+                                @RequestBody RegisterRequest registerRequest
     ) {
          authService.register(registerRequest);
          return "User Successfully Added";
@@ -45,7 +45,7 @@ public class AuthenticationController {
 
     }
     @PostMapping("/refresh")
-    public AuthenticationResponse refreshToken(@RequestBody @Valid RefreshTokenRequest refreshTokenRequest){
+    public AuthenticationResponse refreshToken(@RequestBody RefreshTokenRequest refreshTokenRequest){
         return refreshTokenService.findByToken(refreshTokenRequest.getToken())
                  .map(refreshTokenService::verifyExpiration)
                  .map(RefreshToken::getUser)
