@@ -1,7 +1,7 @@
 package com.hakanozdabak.BlogApp.business.concretes;
 
 import com.hakanozdabak.BlogApp.business.abstracts.PostService;
-import com.hakanozdabak.BlogApp.business.core.utilities.mappers.ModelMapperService;
+import com.hakanozdabak.BlogApp.core.utilites.mappers.ModelMapperService;
 import com.hakanozdabak.BlogApp.business.requests.PostRequest;
 import com.hakanozdabak.BlogApp.business.responses.PostResponse;
 import com.hakanozdabak.BlogApp.dataAccess.abstracts.PostRepository;

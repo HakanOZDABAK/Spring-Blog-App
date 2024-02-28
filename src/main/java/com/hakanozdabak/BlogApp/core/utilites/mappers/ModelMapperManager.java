@@ -1,4 +1,4 @@
-package com.hakanozdabak.BlogApp.business.core.utilities.mappers;
+package com.hakanozdabak.BlogApp.core.utilites.mappers;
 
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
