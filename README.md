@@ -1,6 +1,6 @@
 # Created Random Social Media App BackEnd
 
-This project was created with Spring-Boot
+This project was created with Spring-Boot. Layered Arch was used for this BackEnd
 
 ## Libraries that I Used
 
