@@ -11,7 +11,7 @@ public class UserBusinessRules {
     private UserRepository userRepository;
     public  void checkIfUserEmailExists(String email){
         if(this.userRepository.existsByEmail(email)){
-            throw new BusinessException("Product name already exists");
+            throw new BusinessException("This Email already exists");
 
 
         }
