@@ -59,7 +59,8 @@ public class BlogAppApplication {
 		 validationProblemDetails.setMessage("Validation Exception");
 		 validationProblemDetails.setValidationErrors(new HashMap<String,String>());
 		 for (FieldError fieldError: methodArgumentNotValidException.getBindingResult().getFieldErrors()) {
-		 validationProblemDetails.getValidationErrors().put(fieldError.getField(),fieldError.getDefaultMessage())
+		 validationProblemDetails.getValidationErrors().put(fieldError.getField(),fieldError.getDefaultMessage());
+		 
 		 }
 		 return validationProblemDetails;
 	 }
