@@ -9,6 +9,7 @@ import com.hakanozdabak.BlogApp.business.requests.RegisterRequest;
 import com.hakanozdabak.BlogApp.business.responses.AuthenticationResponse;
 import com.hakanozdabak.BlogApp.entities.concretes.RefreshToken;
 import com.hakanozdabak.BlogApp.security.jwt.JwtService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,7 +45,7 @@ public class AuthenticationController {
 
     }
     @PostMapping("/refresh")
-    public AuthenticationResponse refreshToken(@RequestBody RefreshTokenRequest refreshTokenRequest){
+    public AuthenticationResponse refreshToken(@RequestBody @Valid RefreshTokenRequest refreshTokenRequest){
         return refreshTokenService.findByToken(refreshTokenRequest.getToken())
                  .map(refreshTokenService::verifyExpiration)
                  .map(RefreshToken::getUser)

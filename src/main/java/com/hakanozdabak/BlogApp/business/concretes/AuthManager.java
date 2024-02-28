@@ -4,6 +4,7 @@ import com.hakanozdabak.BlogApp.business.abstracts.AuthService;
 import com.hakanozdabak.BlogApp.business.requests.AuthenticationRequest;
 import com.hakanozdabak.BlogApp.business.requests.RegisterRequest;
 import com.hakanozdabak.BlogApp.business.responses.AuthenticationResponse;
+import com.hakanozdabak.BlogApp.business.rules.UserBusinessRules;
 import com.hakanozdabak.BlogApp.dataAccess.abstracts.UserRepository;
 import com.hakanozdabak.BlogApp.entities.concretes.Role;
 import com.hakanozdabak.BlogApp.entities.concretes.User;
@@ -22,6 +23,7 @@ public class AuthManager implements AuthService {
     private  final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final org.springframework.security.authentication.AuthenticationManager authenticationManager;
+    private UserBusinessRules userBusinessRules;
     @Override
     public AuthenticationResponse register(RegisterRequest registerRequest) {
         var user = User.builder()
@@ -32,6 +34,7 @@ public class AuthManager implements AuthService {
                 .password(passwordEncoder.encode(registerRequest.getPassword()))
                 .role(Role.USER)
                 .build();
+        this.userBusinessRules.checkIfUserEmailExists(registerRequest.getEmail());
         userRepository.save(user);
         var jwtToken = jwtService.generateToken(user.getEmail());
         return AuthenticationResponse.builder()
