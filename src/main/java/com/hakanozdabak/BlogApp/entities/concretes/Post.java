@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Blob;
 import java.util.List;
 
 @Data
@@ -22,6 +23,8 @@ public class Post {
     private int id;
     private String postName;
     private String postDetail;
+    @Lob
+    private Blob image;
 
 
     @ManyToOne()

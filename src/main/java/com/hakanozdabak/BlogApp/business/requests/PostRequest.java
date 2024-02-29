@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Blob;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,6 +19,7 @@ public class PostRequest {
     private String postName;
     private String postDetail;
     private BlogUser user;
+    private Blob image;
 
 
 }

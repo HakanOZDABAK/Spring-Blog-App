@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Blob;
 import java.util.List;
 
 @Data
@@ -19,4 +20,5 @@ public class PostResponse {
     private String postDetail;
     private BlogUser blogUser;
     private List<GetCommentResponse> comments;
+    private Blob image;
 }
