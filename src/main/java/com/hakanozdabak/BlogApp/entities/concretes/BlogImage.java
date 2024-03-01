@@ -14,8 +14,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class BlogComment {
+public class BlogImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int blogPostId;
+    private int id;
+    private String fileUri;
 }

@@ -1,5 +1,6 @@
 package com.hakanozdabak.BlogApp.business.requests;
 
+import com.hakanozdabak.BlogApp.entities.concretes.BlogImage;
 import com.hakanozdabak.BlogApp.entities.concretes.BlogUser;
 import com.hakanozdabak.BlogApp.entities.concretes.Comment;
 import lombok.AllArgsConstructor;
@@ -19,7 +20,7 @@ public class PostRequest {
     private String postName;
     private String postDetail;
     private BlogUser user;
-    private Blob image;
+
 
 
 }

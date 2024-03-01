@@ -23,8 +23,7 @@ public class Post {
     private int id;
     private String postName;
     private String postDetail;
-    @Lob
-    private Blob image;
+
 
 
     @ManyToOne()
@@ -34,6 +33,9 @@ public class Post {
 
     @OneToMany(mappedBy = "post")
     private List<Comment> comments;
+
+    @OneToMany(mappedBy = "post")
+    private List<FileDetail> fileDetails;
 
 
 }

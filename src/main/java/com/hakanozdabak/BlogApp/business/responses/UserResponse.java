@@ -1,6 +1,5 @@
 package com.hakanozdabak.BlogApp.business.responses;
 
-import com.hakanozdabak.BlogApp.entities.concretes.Post;
 import com.hakanozdabak.BlogApp.entities.concretes.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +19,6 @@ public class UserResponse {
     private String profileName;
     private Role role;
 
-    private List<GetUserPostResponse> posts;
+    private List<GetPostResponse> posts;
 
 }

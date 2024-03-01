@@ -1,5 +1,6 @@
 package com.hakanozdabak.BlogApp.business.responses;
 
+import com.hakanozdabak.BlogApp.entities.concretes.BlogImage;
 import com.hakanozdabak.BlogApp.entities.concretes.BlogUser;
 import com.hakanozdabak.BlogApp.entities.concretes.Comment;
 import lombok.AllArgsConstructor;
@@ -20,5 +21,5 @@ public class PostResponse {
     private String postDetail;
     private BlogUser blogUser;
     private List<GetCommentResponse> comments;
-    private Blob image;
+    private List<BlogImage> blogImage;
 }

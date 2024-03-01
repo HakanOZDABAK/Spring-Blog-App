@@ -1,6 +1,6 @@
 package com.hakanozdabak.BlogApp.business.requests;
 
-import com.hakanozdabak.BlogApp.entities.concretes.BlogComment;
+import com.hakanozdabak.BlogApp.entities.concretes.BlogPost;
 import com.hakanozdabak.BlogApp.entities.concretes.BlogUser;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +15,7 @@ public class CommentRequest {
     private int commentId;
     private String commentDetail;
     private BlogUser blogUser;
-    private BlogComment post;
+    private BlogPost post;
 
 
 }

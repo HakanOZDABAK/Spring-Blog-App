@@ -38,4 +38,8 @@ public class FileDetail {
         this.fileSize = fileSize;
         this.uploaderName = uploaderName;
     }
+
+    @ManyToOne()
+    @JoinColumn(name="post_id")
+    private Post post;
 }
