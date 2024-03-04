@@ -40,7 +40,7 @@ public class FileUploadController {
     }
     @GetMapping("/getFileByPostId")
     @ResponseStatus(code = HttpStatus.OK)
-    public FileDetail getFileByPostId(@RequestParam("postId") int postId) {
+    public FileDetail getFileByPostId(@RequestParam("postId") String postId) {
         return this.fileUploadService.getFileDetailByUploaderName(postId);
     }
 

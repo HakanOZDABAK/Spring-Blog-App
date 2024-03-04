@@ -109,7 +109,7 @@ public class FileUploadManager implements FileUploadService {
     }
 
     @Override
-    public FileDetail getFileDetailByUploaderName(int uploaderName){
+    public FileDetail getFileDetailByUploaderName(String uploaderName){
 
         return this.fileDetailsRepository.getFileDetailByUploaderName(uploaderName);
     }

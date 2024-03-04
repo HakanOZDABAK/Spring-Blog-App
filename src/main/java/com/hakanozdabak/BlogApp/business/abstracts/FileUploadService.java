@@ -17,6 +17,6 @@ public interface FileUploadService {
 
       List<FileDetail> getAllFiles();
 
-      FileDetail getFileDetailByUploaderName(int uploaderName);
+      FileDetail getFileDetailByUploaderName(String uploaderName);
 }
 

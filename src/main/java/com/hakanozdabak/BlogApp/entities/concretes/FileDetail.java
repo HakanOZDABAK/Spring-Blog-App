@@ -39,7 +39,4 @@ public class FileDetail {
         this.uploaderName = uploaderName;
     }
 
-    @ManyToOne()
-    @JoinColumn(name="post_id")
-    private Post post;
 }
