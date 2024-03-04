@@ -38,6 +38,11 @@ public class FileUploadController {
     public List<FileDetail> getAllFiles() {
         return this.fileUploadService.getAllFiles();
     }
+    @GetMapping("/getFileByPostId")
+    @ResponseStatus(code = HttpStatus.OK)
+    public FileDetail getFileByPostId(@RequestParam("postId") int postId) {
+        return this.fileUploadService.getFileDetailByUploaderName(postId);
+    }
 
     @PostMapping(value = "/upload",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Object> uploadFiles(@RequestParam("name") String name
@@ -84,4 +89,5 @@ public class FileUploadController {
             return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
         }
     }
+
 }

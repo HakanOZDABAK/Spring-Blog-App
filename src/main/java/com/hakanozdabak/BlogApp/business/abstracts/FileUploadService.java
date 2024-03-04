@@ -16,5 +16,7 @@ public interface FileUploadService {
       Resource fetchFileAsResource(String fileName) throws FileNotFoundException;
 
       List<FileDetail> getAllFiles();
+
+      FileDetail getFileDetailByUploaderName(int uploaderName);
 }
 

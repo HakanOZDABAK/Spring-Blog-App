@@ -108,4 +108,10 @@ public class FileUploadManager implements FileUploadService {
         return this.fileDetailsRepository.findAll();
     }
 
+    @Override
+    public FileDetail getFileDetailByUploaderName(int uploaderName){
+
+        return this.fileDetailsRepository.getFileDetailByUploaderName(uploaderName);
+    }
+
 }
