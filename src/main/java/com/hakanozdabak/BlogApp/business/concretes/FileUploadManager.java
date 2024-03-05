@@ -49,7 +49,7 @@ public class FileUploadManager implements FileUploadService {
 
     @Override
     public FileUploadResponse uploadFile(MultipartFile file,
-                                         String uploaderName) throws IOException {
+                                         String postId) throws IOException {
         if (!Files.exists(UPLOAD_PATH)) {
             Files.createDirectories(UPLOAD_PATH);
         }
@@ -74,7 +74,7 @@ public class FileUploadManager implements FileUploadService {
 
         FileDetail fileDetails = new FileDetail(file.getOriginalFilename(),
                 fileUri,
-                fileDownloadUri, file.getSize(), uploaderName);
+                fileDownloadUri, file.getSize(), postId);
 
         this.fileDetailsRepository.save(fileDetails);
 
@@ -82,7 +82,7 @@ public class FileUploadManager implements FileUploadService {
                 new FileUploadResponse(fileDetails.getId(),
                         file.getOriginalFilename(), fileUri, fileDownloadUri,
                         file.getSize(),
-                        uploaderName);
+                        postId);
 
         return fileUploadResponse;
     }
@@ -109,9 +109,9 @@ public class FileUploadManager implements FileUploadService {
     }
 
     @Override
-    public FileDetail getFileDetailByUploaderName(String uploaderName){
+    public FileDetail getFileDetailByPostId(String postId){
 
-        return this.fileDetailsRepository.getFileDetailByUploaderName(uploaderName);
+        return this.fileDetailsRepository.getFileDetailByPostId(postId);
     }
 
 }

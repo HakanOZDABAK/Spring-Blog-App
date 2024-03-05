@@ -41,7 +41,7 @@ public class FileUploadController {
     @GetMapping("/getFileByPostId")
     @ResponseStatus(code = HttpStatus.OK)
     public FileDetail getFileByPostId(@RequestParam("postId") String postId) {
-        return this.fileUploadService.getFileDetailByUploaderName(postId);
+        return this.fileUploadService.getFileDetailByPostId(postId);
     }
 
     @PostMapping(value = "/upload",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)

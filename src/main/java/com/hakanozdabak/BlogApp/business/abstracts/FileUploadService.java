@@ -11,12 +11,12 @@ import java.util.List;
 
 public interface FileUploadService {
       FileUploadResponse uploadFile(MultipartFile file,
-                                          String uploaderName) throws IOException;
+                                          String postId) throws IOException;
 
       Resource fetchFileAsResource(String fileName) throws FileNotFoundException;
 
       List<FileDetail> getAllFiles();
 
-      FileDetail getFileDetailByUploaderName(String uploaderName);
+      FileDetail getFileDetailByPostId(String postId);
 }
 

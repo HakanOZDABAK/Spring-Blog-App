@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface FileRepository extends JpaRepository<FileDetail,Integer> {
 
-    FileDetail getFileDetailByUploaderName(String uploaderName);
+    FileDetail getFileDetailByPostId(String postId);
 }
