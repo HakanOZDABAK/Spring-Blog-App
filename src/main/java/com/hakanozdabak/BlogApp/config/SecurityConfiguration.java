@@ -41,7 +41,8 @@ public class SecurityConfiguration {
             // for Swagger UI v3 (OpenAPI)
             "/v3/api-docs/**",
             "/swagger-ui/**",
-            "/api/v1/auth/**"
+            "/api/v1/auth/**",
+            "/image/**"
 
     };
 
